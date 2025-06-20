@@ -48,10 +48,9 @@ const Hero = () => {
           </h2>
           
           <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed">
-            I build <span className="text-primary font-semibold">modern</span>, scalable web applications using the{' '}
-            <span className="text-primary font-semibold">MERN stack</span> and more. 
-            Currently in my final year of BCA at GGSIPU, passionate about creating 
-            innovative digital solutions.
+            I specialize in developing <span className="text-primary font-semibold">modern</span>, scalable web applications utilizing the <span className="text-primary font-semibold">MERN stack</span> and related technologies.
+            Currently, I am in my final year of the Bachelor of Computer Applications (BCA) program at Guru Gobind Singh Indraprastha University (GGSIPU).
+            I am dedicated to delivering innovative and effective digital solutions.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

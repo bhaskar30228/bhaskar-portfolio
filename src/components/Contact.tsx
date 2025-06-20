@@ -110,7 +110,7 @@ const Contact = () => {
               <h4 className="text-xl font-bold text-white mb-6">Follow Me</h4>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/bhaskarpujari"
+                  href="https://github.com/bhaskar30228"
                   className="group"
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center border border-gray-600 hover:border-primary/50 transition-all duration-300 hover-lift">

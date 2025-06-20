@@ -67,7 +67,33 @@ const Projects = () => {
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
-              
+              {index === 0 && (
+                <a
+                  href="https://github.com/bhaskar30228/ShopZone"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-10"
+                  aria-label="View Shopping App on GitHub"
+                />
+              )}
+              {index === 1 && (
+                <a
+                  href="https://github.com/bhaskar30228/ResturantProject"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-10"
+                  aria-label="View Restaurant App on GitHub"
+                />
+              )}
+              {index === 2 && (
+                <a
+                  href="https://github.com/bhaskar30228/Job_portal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-10"
+                  aria-label="View JobFinder App on GitHub"
+                />
+              )}
               <CardHeader className="pb-4">
                 <CardTitle className="text-white text-2xl mb-2 group-hover:text-primary transition-colors duration-300">
                   {project.title}
@@ -77,7 +103,7 @@ const Projects = () => {
                 </CardDescription>
               </CardHeader>
 
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 flex flex-col h-full">
                 <div className="mb-6">
                   <h4 className="text-primary font-semibold mb-3 text-lg">Key Features:</h4>
                   <ul className="text-sm text-gray-400 space-y-2">
@@ -94,8 +120,8 @@ const Projects = () => {
                   <h4 className="text-primary font-semibold mb-3 text-lg">Tech Stack:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
+                      <span
+                      key={techIndex}
                         className="px-3 py-1.5 bg-gradient-to-r from-primary/20 to-yellow-500/20 text-primary text-sm rounded-full border border-primary/30 hover:border-primary/50 transition-colors duration-300"
                       >
                         {tech}
@@ -104,7 +130,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex gap-5 position-absolute bottom-4 left-4 right-4 ">
                   <Button 
                     size="sm" 
                     variant="outline" 
@@ -114,17 +140,6 @@ const Projects = () => {
                     <a href={project.github}>
                       <Github className="w-4 h-4 mr-2" />
                       Code
-                    </a>
-                  </Button>
-                  
-                  <Button 
-                    size="sm" 
-                    className="flex-1 bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold"
-                    asChild
-                  >
-                    <a href={project.demo}>
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
                     </a>
                   </Button>
                 </div>
