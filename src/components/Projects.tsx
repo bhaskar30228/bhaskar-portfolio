@@ -1,5 +1,5 @@
 
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -12,7 +12,8 @@ const Projects = () => {
       features: ['User authentication', 'Product management', 'Shopping cart', 'Favorites system'],
       image: '/lovable-uploads/652a815f-05bc-43a3-9d67-8407cb80a53c.png',
       github: '#',
-      demo: '#'
+      demo: '#',
+      gradient: 'from-blue-500 to-purple-600'
     },
     {
       title: 'Restaurant App',
@@ -21,7 +22,8 @@ const Projects = () => {
       features: ['Order management', 'Menu customization', 'User roles', 'Real-time updates'],
       image: '/lovable-uploads/652a815f-05bc-43a3-9d67-8407cb80a53c.png',
       github: '#',
-      demo: '#'
+      demo: '#',
+      gradient: 'from-green-500 to-teal-600'
     },
     {
       title: 'JobFinder App',
@@ -30,53 +32,71 @@ const Projects = () => {
       features: ['Job search', 'Application tracking', 'User profiles', 'Responsive design'],
       image: '/lovable-uploads/652a815f-05bc-43a3-9d67-8407cb80a53c.png',
       github: '#',
-      demo: '#'
+      demo: '#',
+      gradient: 'from-orange-500 to-pink-600'
     }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-gray-900/20 to-transparent">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-20 bg-gradient-to-b from-gray-900/20 via-transparent to-gray-900/20 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6">
+            <Rocket className="w-4 h-4 text-primary" />
+            <span className="text-primary font-medium">My work</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
             Featured Projects
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-xl max-w-3xl mx-auto">
             A showcase of my recent work and technical capabilities
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="bg-gray-800/30 border-gray-700 hover-lift overflow-hidden group">
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                <div className="text-6xl opacity-50">🚀</div>
+            <Card key={index} className="card-gradient border-primary/20 hover-lift overflow-hidden group relative">
+              {/* Project image/icon area */}
+              <div className={`aspect-video bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <div className="text-8xl opacity-70 group-hover:scale-110 transition-transform duration-500">🚀</div>
+                </div>
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               
-              <CardHeader>
-                <CardTitle className="text-white text-xl mb-2">{project.title}</CardTitle>
-                <CardDescription className="text-gray-400">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-white text-2xl mb-2 group-hover:text-primary transition-colors duration-300">
+                  {project.title}
+                </CardTitle>
+                <CardDescription className="text-gray-400 text-base leading-relaxed">
                   {project.description}
                 </CardDescription>
               </CardHeader>
 
-              <CardContent>
-                <div className="mb-4">
-                  <h4 className="text-primary font-semibold mb-2">Key Features:</h4>
-                  <ul className="text-sm text-gray-400 space-y-1">
+              <CardContent className="pt-0">
+                <div className="mb-6">
+                  <h4 className="text-primary font-semibold mb-3 text-lg">Key Features:</h4>
+                  <ul className="text-sm text-gray-400 space-y-2">
                     {project.features.map((feature, featureIndex) => (
-                      <li key={featureIndex}>• {feature}</li>
+                      <li key={featureIndex} className="flex items-center">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
+                        {feature}
+                      </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mb-6">
-                  <h4 className="text-primary font-semibold mb-2">Tech Stack:</h4>
+                <div className="mb-8">
+                  <h4 className="text-primary font-semibold mb-3 text-lg">Tech Stack:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="px-3 py-1 bg-primary/20 text-primary text-xs rounded-full border border-primary/30"
+                        className="px-3 py-1.5 bg-gradient-to-r from-primary/20 to-yellow-500/20 text-primary text-sm rounded-full border border-primary/30 hover:border-primary/50 transition-colors duration-300"
                       >
                         {tech}
                       </span>
@@ -88,7 +108,7 @@ const Projects = () => {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className="flex-1 border-primary text-primary hover:bg-primary hover:text-black"
+                    className="flex-1 border-primary/50 text-primary hover:bg-primary hover:text-black transition-all duration-300"
                     asChild
                   >
                     <a href={project.github}>
@@ -99,7 +119,7 @@ const Projects = () => {
                   
                   <Button 
                     size="sm" 
-                    className="flex-1 bg-primary hover:bg-primary/90 text-black"
+                    className="flex-1 bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold"
                     asChild
                   >
                     <a href={project.demo}>
